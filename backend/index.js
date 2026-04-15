@@ -1,6 +1,7 @@
 import runGetStarted from "./src/db/mongo.js"
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 // runGetStarted().catch(console.dir);
 const app=express();
@@ -12,6 +13,7 @@ app.use(
         credentials:true,
     }) 
 );
+app.use(cookieParser());
 
 const server=async()=>{
     try{
