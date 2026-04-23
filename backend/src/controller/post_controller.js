@@ -23,4 +23,9 @@ const getproposalbyid=asyncHandler(async(req,res)=>{
     res.json(new ApiResponse(200, proposal));
 })
 
-export {createproposal,getproposalbyid}
+const getAllPost=asyncHandler(async(req,res)=>{
+    const post=await Post.find().populate("ownerId","username email").sort({createdAt:-1});
+    res.json(new ApiResponse(200,post));
+})
+
+export {createproposal,getproposalbyid,getAllPost};
