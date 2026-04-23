@@ -2,7 +2,10 @@ import runGetStarted from "./src/db/mongo.js"
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
+import userRoute from "./src/routes/user.route.js"
+import postRoute from "./src/routes/post.route.js"
+import commentRoute from "./src/routes/comment.route.js"
+import userHistoryRoute from "./src/routes/userHistory.route.js" 
 // runGetStarted().catch(console.dir);
 const app=express();
 const PORT=4000;
@@ -14,6 +17,11 @@ app.use(
     }) 
 );
 app.use(cookieParser());
+
+app.use("/route/user",userRoute);
+app.use("/route/post",postRoute);
+app.use("/route/comment",commentRoute);
+app.use("/route/userhistory",userHistoryRoute);
 
 const server=async()=>{
     try{
