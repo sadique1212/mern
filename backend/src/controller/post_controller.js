@@ -3,8 +3,8 @@ import { asyncHandler } from "../utils/asyncHandler.js"
 import { ApiError } from "../utils/APiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 const createproposal=asyncHandler(async(req,res)=>{
-    const {title,content}=req.body;
-    if(!title||!content){
+    const {content}=req.body;
+    if(!content){
         throw new ApiError(400,"all entry are req");
     }
     const proposal=await Post.create({
